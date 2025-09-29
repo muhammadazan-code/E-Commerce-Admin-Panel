@@ -1,0 +1,73 @@
+name: e_commerce_web
+description: "A new Flutter project."
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  #Utility Packages
+  shimmer: ^3.0.0
+  image_picker: ^1.2.0
+  flutter_native_splash: ^2.4.6
+  smooth_page_indicator: ^1.2.1
+  lottie: ^3.3.1
+  connectivity_plus: ^7.0.0
+  flutter_dropzone: ^4.2.1
+  flutter_typeahead: ^5.2.0
+  clipboard: ^2.0.2
+  multi_select_flutter: ^4.1.3
+  cached_network_image: ^3.4.1
+  url_launcher: ^6.3.2
+  cupertino_icons: ^1.0.8
+
+  #Firebase Packages
+  firebase_core: ^4.1.1
+  firebase_auth: ^6.1.0
+  firebase_storage: ^13.0.2
+  cloud_firestore: ^6.0.2
+
+  #Web Specific
+  web: ^1.1.1
+  http: ^1.5.0
+  html: ^0.15.6
+  fl_chart: ^1.1.0
+  url_strategy: ^0.3.0
+  data_table_2: ^2.6.0
+  get: ^4.7.2
+  get_storage: ^2.1.1
+  logger: ^2.6.1
+  iconsax: ^0.0.8
+  intl: ^0.20.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  #------------------------- LOCAL ASSETS ----------------------------------#
+  assets:
+    - assets/logos/
+    - assets/icons/payment_methods/
+    - assets/images/animations/
+    - assets/images/contents/
+#--------------------------- LOCAL FONTS -----------------------------------#
+# fonts:
+#   - family: Schyler
+#     fonts:
+#       - asset: fonts/Schyler-Regular.ttf
+#       - asset: fonts/Schyler-Italic.ttf
+#         style: italic
+#   - family: Trajan Pro
+#     fonts:
+#       - asset: fonts/TrajanPro.ttf
+#       - asset: fonts/TrajanPro_Bold.ttf
+#         weight: 700
+#
