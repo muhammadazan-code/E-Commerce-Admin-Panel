@@ -1,5 +1,7 @@
 import 'package:e_commerce_web/common/widgets/container/circular_container.dart';
 import 'package:e_commerce_web/common/widgets/layouts/template/site_layout.dart';
+import 'package:e_commerce_web/screen/first_screen.dart';
+import 'package:e_commerce_web/screen/second_screen.dart';
 import 'package:e_commerce_web/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -13,7 +15,18 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      home: ResponsiveDesignScreen(),
+      routes: {
+        '/': (context) => const FirstScreen(),
+        '/second-screen': (context) => const SecondScreen(),
+      },
+      getPages: [
+        GetPage(name: '/', page: () => FirstScreen()),
+        GetPage(name: '/second-screen/', page: () => const SecondScreen()),
+        GetPage(
+          name: '/second-screen/:userId',
+          page: () => const SecondScreen(),
+        ),
+      ],
     );
   }
 }
