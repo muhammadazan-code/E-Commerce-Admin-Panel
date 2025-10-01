@@ -9,11 +9,12 @@ class DesktopLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       key: scaffoldKey,
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(child: Drawer(child: TSidebars())),
+          Expanded(child: TSidebars()),
           Expanded(
             flex: 5,
             child: Column(

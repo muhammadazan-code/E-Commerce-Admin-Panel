@@ -1,3 +1,4 @@
+import 'package:e_commerce_web/Routes/routes.dart';
 import 'package:e_commerce_web/common/widgets/images/t_rounded_image.dart';
 import 'package:e_commerce_web/common/widgets/layouts/sidebars/menu/menu_items.dart';
 import 'package:e_commerce_web/utils/constants/colors.dart';
@@ -24,9 +25,11 @@ class TSidebars extends StatelessWidget {
             children: [
               ///Image
               TRoundedImage(
+                width: 100,
+                height: 100,
                 imageType: ImageType.assets,
                 fit: BoxFit.cover,
-                image: TImagePath.lightAppLogo,
+                image: TImagePath.darkAppLogo,
                 backgroundColor: Colors.transparent,
               ),
               SizedBox(height: TSizes.spaceBetweenSections),
@@ -36,6 +39,7 @@ class TSidebars extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    /// Heading
                     Text(
                       "MENU",
                       style: Theme.of(
@@ -47,17 +51,17 @@ class TSidebars extends StatelessWidget {
                     TMenuItems(
                       icon: Iconsax.status,
                       itemName: 'Dashboard',
-                      route: '',
+                      route: TRoutes.firstScreen,
                     ),
                     TMenuItems(
                       icon: Iconsax.image,
                       itemName: 'Media',
-                      route: '',
+                      route: TRoutes.secondScreen,
                     ),
                     TMenuItems(
                       icon: Iconsax.picture_frame,
                       itemName: 'Banners',
-                      route: '',
+                      route: TRoutes.secondScreenWithUID,
                     ),
                   ],
                 ),

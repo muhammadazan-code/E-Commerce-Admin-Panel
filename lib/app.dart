@@ -12,11 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
       getPages: TAppRoutes.pages,
-      initialRoute: TRoutes.firstScreen,
+      initialRoute: TRoutes.login,
       unknownRoute: GetPage(
         name: '/page-not-found',
         page: () => Scaffold(body: Center(child: Text('Page not found'))),

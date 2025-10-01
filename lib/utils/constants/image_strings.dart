@@ -1,9 +1,9 @@
 class TImagePath {
   //--- App logos
   static const String darkAppLogo =
-      "assets/logos/t-store-splash-logo-white.png";
-  static const String lightAppLogo =
       "assets/logos/t-store-splash-logo-black.png";
+  static const String lightAppLogo =
+      "assets/logos/t-store-splash-logo-white.png";
 
   //--- Special Logos
   static const String google = "assets/logos/google-logo.png";
