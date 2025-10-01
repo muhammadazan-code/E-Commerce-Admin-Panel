@@ -1,6 +1,8 @@
+import 'package:e_commerce_web/Routes/routes.dart';
 import 'package:e_commerce_web/utils/constants/sizes.dart';
 import 'package:e_commerce_web/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TLoginForm extends StatelessWidget {
@@ -50,7 +52,10 @@ class TLoginForm extends StatelessWidget {
                 ),
 
                 /// Forget Password
-                TextButton(onPressed: () {}, child: Text(TText.forgotPassword)),
+                TextButton(
+                  onPressed: () => Get.toNamed(TRoutes.forgetPassword),
+                  child: Text(TText.forgotPassword),
+                ),
               ],
             ),
             SizedBox(height: TSizes.spaceBetweenSections),

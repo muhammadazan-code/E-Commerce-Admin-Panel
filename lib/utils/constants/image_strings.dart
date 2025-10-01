@@ -21,6 +21,8 @@ class TImagePath {
       "assets/images/verify_email/email_verification.png";
   static const String accountCreation =
       "assets/images/account_creation/verification.jpg";
+  static const String deliveredEmailForResetPassword =
+      "assets/images/animations/sammy-line-man-receives-a-mail.png";
 
   // --- Logos
   static const String bowling = "assets/icons/categories/bowling.png";
@@ -163,15 +165,18 @@ class TImagePath {
   static const String userImage = "assets/images/contents/user.png";
 
   // Payment Icon Path
-  static const String applePayIcon = "assets/icons/payments/apple-pay.png";
-  static const String creditCard = "assets/icons/payments/credit-card.png";
-  static const String googlePay = "assets/icons/payments/google-pay.png";
-  static const String masterCard = "assets/icons/payments/master-card.png";
-  static const String payPal = "assets/icons/payments/paypal.png";
-  static const String payStack = "assets/icons/payments/paystack.png";
-  static const String paytm = "assets/icons/payments/paytm.png";
+  static const String applePayIcon =
+      "assets/icons/payment_methods/apple-pay.png";
+  static const String creditCard =
+      "assets/icons/payment_methods/credit-card.png";
+  static const String googlePay = "assets/icons/payment_methods/google-pay.png";
+  static const String masterCard =
+      "assets/icons/payment_methods/master-card.png";
+  static const String payPal = "assets/icons/payment_methods/paypal.png";
+  static const String payStack = "assets/icons/payment_methods/paystack.png";
+  static const String paytm = "assets/icons/payment_methods/paytm.png";
   static const String successfulpayment =
-      "assets/icons/payments/successful_payment_icon.png";
+      "assets/icons/payment_methods/successful_payment_icon.png";
   static const String visa = "assets/icons/visa.png";
   // Animations
   static String docerAnimation =
