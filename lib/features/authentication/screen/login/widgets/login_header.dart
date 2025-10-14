@@ -1,6 +1,7 @@
 import 'package:e_commerce_web/utils/constants/image_strings.dart';
 import 'package:e_commerce_web/utils/constants/sizes.dart';
 import 'package:e_commerce_web/utils/constants/text_strings.dart';
+import 'package:e_commerce_web/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class TLoginHeader extends StatelessWidget {
@@ -8,13 +9,16 @@ class TLoginHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return SizedBox(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Image(
-            image: AssetImage(TImagePath.darkAppLogo),
+          Image(
+            image: AssetImage(
+              dark ? TImagePath.lightAppLogo : TImagePath.darkAppLogo,
+            ),
             width: 100,
             height: 100,
           ),
