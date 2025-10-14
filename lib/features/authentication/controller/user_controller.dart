@@ -8,11 +8,21 @@ class UserController extends GetxController {
   static UserController get instance => Get.find();
 
   final userRepository = Get.put(UserRepository());
+  RxBool loading = false.obs;
+  Rx<UserModel> users = UserModel.empty().obs;
+  @override
+  void onInit() {
+    fetchUserDetails();
+    super.onInit();
+  }
 
   /// Fetch user details from the repository
   Future<UserModel> fetchUserDetails() async {
     try {
+      loading.value = true;
       final user = await UserRepository.instance.fetchAdminDetails();
+      this.users.value = user;
+      loading.value = false;
       if (kDebugMode) {
         print("User Controller fetch Details Admin $user");
       }
@@ -21,6 +31,7 @@ class UserController extends GetxController {
       }
       return user;
     } catch (e) {
+      loading.value = false;
       TLoaders.errorSnackBar(
         title: 'fetch User Controller details Something went wrong',
         message: e.toString(),
