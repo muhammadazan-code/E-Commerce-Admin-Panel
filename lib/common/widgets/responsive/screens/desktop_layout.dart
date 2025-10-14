@@ -9,7 +9,6 @@ class DesktopLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       key: scaffoldKey,
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +21,7 @@ class DesktopLayout extends StatelessWidget {
                 // Header
                 THeader(),
                 // Body
-                body ?? SizedBox(),
+                Expanded(child: body ?? SizedBox()),
               ],
             ),
           ),

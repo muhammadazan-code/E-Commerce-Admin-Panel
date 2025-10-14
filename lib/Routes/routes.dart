@@ -32,10 +32,5 @@ class TRoutes {
   static const secondScreen = "/second-screen/";
   static const secondScreenWithUID = "/second-screen/:userId";
 
-  static List sidebarMenuItems = [
-    firstScreen,
-    responsivenDesignTutorialScreen,
-    secondScreen,
-    secondScreenWithUID,
-  ];
+  static List sidebarMenuItems = [dashboard];
 }

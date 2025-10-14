@@ -68,4 +68,23 @@ fonts:
         style: italic
       - asset: fonts/urbanist/Urbanist-Bold.ttf
       - asset: fonts/urbanist/Urbanist-BoldItalic.ttf
-        style: italic
+      - style: italic
+      - weight: Bold
+      - asset: fonts/urbanist/Urbanist-Italic.ttf
+      - style: italic
+      - asset: fonts/urbanist/Urbanist-Light.ttf
+      - asset: fonts/urbanist/Urbanist-LightItalic.ttf
+      - style: italic
+      - asset: fonts/urbanist/Urbanist-Regular.ttf
+      - asset: fonts/urbanist/Urbanist-SemiBold.ttf
+      - weight: Bold
+      - asset: fonts/urbanist/Urbanist-SemiBoldItalic.ttf
+      - style: italic
+      - asset: fonts/urbanist/Urbanist-Thin.ttf
+      - asset: fonts/urbanist/Urbanist-ThinItalic.ttf
+      - style: italic
+      - asset: fonts/urbanist/Urbanist-Medium.ttf
+      - asset: fonts/urbanist/Urbanist-MediumItalic.ttf
+      - style: Italic
+      - asset: fonts/urbanist/Urbanist-ExtaLight.ttf
+      - asset: fonts/urbanist/Urbanist-ExtaLightItalic.ttf
