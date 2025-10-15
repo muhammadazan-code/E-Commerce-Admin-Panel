@@ -1,4 +1,10 @@
+import 'package:e_commerce_web/features/dashboard/controller/dashboard_controller.dart';
+import 'package:e_commerce_web/utils/constants/colors.dart';
+import 'package:e_commerce_web/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:data_table_2/data_table_2.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_instance/get_instance.dart';
 
 class DesktopDashboardScreen extends StatelessWidget {
   const DesktopDashboardScreen({super.key});
@@ -26,36 +32,62 @@ class DesktopDashboardScreen extends StatelessWidget {
           //     ),
           //   ],
           // ),
-          child: DataTable(
-            decoration: BoxDecoration(color: Colors.white),
+          child: PaginatedDataTable2(
+            columnSpacing: 12,
+            minWidth: 786,
+            rowsPerPage: 12,
+            dividerThickness: 0,
+            horizontalMargin: 12,
+            dataRowHeight: 60,
+            headingTextStyle: Theme.of(context).textTheme.titleLarge,
+            headingRowColor: WidgetStateColor.resolveWith(
+              (states) => TColor.primaryBackground,
+            ),
+            headingRowDecoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(TSizes.borderRadiusMd),
+                topRight: Radius.circular(TSizes.borderRadiusMd),
+              ),
+            ),
+            showCheckboxColumn: true,
             border: TableBorder.all(color: Colors.black),
             columns: [
-              DataColumn(label: Text("Column 1")),
+              DataColumn2(label: Text("Column 1")),
               DataColumn(label: Text("Column 2")),
               DataColumn(label: Text("Column 3")),
               DataColumn(label: Text("Column 4")),
             ],
-            rows: [
-              DataRow(
-                cells: [
-                  DataCell(Text("Row 1")),
-                  DataCell(Text("Row 2")),
-                  DataCell(Text("Row 3")),
-                  DataCell(Text("Row 4")),
-                ],
-              ),
-              DataRow(
-                cells: [
-                  DataCell(Text("Row 5")),
-                  DataCell(Text("Row 6")),
-                  DataCell(Text("Row 7")),
-                  DataCell(Text("Row 8")),
-                ],
-              ),
-            ],
+            source: MyProductData(),
           ),
         ),
       ),
     );
   }
+}
+
+class MyProductData extends DataTableSource {
+  final DashboardController controller = Get.put(DashboardController());
+
+  @override
+  DataRow? getRow(int index) {
+    final data = controller.dataList[index];
+
+    return DataRow2(
+      cells: [
+        DataCell(Text(data['Column 1'] ?? '')),
+        DataCell(Text(data['Column 2'] ?? '')),
+        DataCell(Text(data['Column 3'] ?? '')),
+        DataCell(Text(data['Column 4'] ?? '')),
+      ],
+    );
+  }
+
+  @override
+  bool get isRowCountApproximate => false;
+
+  @override
+  int get rowCount => controller.dataList.length;
+
+  @override
+  int get selectedRowCount => 0;
 }
