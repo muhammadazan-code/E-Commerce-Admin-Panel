@@ -1,3 +1,4 @@
+import 'package:e_commerce_web/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class TResponsiveDesign extends StatelessWidget {
@@ -14,9 +15,10 @@ class TResponsiveDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth >= 1300) {
+        if (constraints.maxWidth >= TSizes.desktopScreenSize) {
           return desktop;
-        } else if (constraints.maxWidth < 1300 && constraints.minWidth > 500) {
+        } else if (constraints.maxWidth < TSizes.desktopScreenSize &&
+            constraints.minWidth >= TSizes.tabletScreenSize) {
           return tablet;
         } else {
           return mobile;

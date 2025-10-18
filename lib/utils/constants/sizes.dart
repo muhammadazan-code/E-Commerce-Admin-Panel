@@ -68,7 +68,7 @@ class TSizes {
 
   // Responsive Screen Size
   static const int desktopScreenSize = 1000;
-  static const int tabletScreenSize = 768;
-  static const int mobileScreenSize = 360;
+  static const int tabletScreenSize = 570;
+  static const int mobileScreenSize = 300;
   static const int customScreenSize = 1100;
 }

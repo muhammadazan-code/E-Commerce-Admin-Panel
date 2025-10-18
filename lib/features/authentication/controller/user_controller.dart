@@ -33,7 +33,8 @@ class UserController extends GetxController {
     } catch (e) {
       loading.value = false;
       TLoaders.errorSnackBar(
-        title: 'fetch User Controller details Something went wrong',
+        title:
+            'fetch User Controller details Something went wrong ${users.value.role}',
         message: e.toString(),
       );
       return UserModel.empty();

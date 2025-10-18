@@ -43,12 +43,12 @@ class THelperFunctions {
 
   // Here we get the device screen
   static double screenWidth(BuildContext context) {
-    return MediaQuery.of(context).size.width;
+    return MediaQuery.sizeOf(context).width;
   }
 
   // Here we get the device height
   static double screenHeight(BuildContext context) {
-    return MediaQuery.of(context).size.height;
+    return MediaQuery.sizeOf(context).height;
   }
 
   static Size screenSize(BuildContext context) {

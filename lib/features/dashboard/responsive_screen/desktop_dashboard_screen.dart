@@ -1,12 +1,11 @@
-import 'package:e_commerce_web/common/widgets/data_table/paginated_data_table.dart';
 import 'package:e_commerce_web/features/dashboard/controller/dashboard_controller.dart';
+import 'package:e_commerce_web/features/dashboard/widgets/dashboard_card.dart';
 import 'package:e_commerce_web/utils/constants/sizes.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_instance/get_instance.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:iconsax/iconsax.dart';
 
 class DesktopDashboardScreen extends StatelessWidget {
@@ -14,59 +13,72 @@ class DesktopDashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DashboardController controller = Get.put(DashboardController());
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextFormField(
-                controller: controller.searchTextController,
-                decoration: InputDecoration(
-                  hintText: 'Search',
-                  prefixIcon: Icon(Iconsax.search_normal),
-                ),
-                onChanged: (value) => controller.searchQuery(value),
+              /// Heading
+              Text(
+                'Dashboard',
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
               SizedBox(height: TSizes.spaceBetweenSections),
-              Obx(() {
-                Visibility(
-                  visible: false,
-                  child: Text(controller.filteredDataList.length.toString()),
-                );
-                return TPaginatedDataTable(
-                  minWidth: 786,
-                  rowsPerPage: 12,
-                  dataRowHeight: 60,
 
-                  /// Pagination
-                  onPageChanged: (value) {
-                    if (kDebugMode) {
-                      print("pAGE cHANGED");
-                    }
-                  },
-
-                  /// SORTING
-                  sortAscending: controller.sortAscending.value,
-                  sortColumnIndex: controller.sortColumnIndex.value,
-                  columns: [
-                    DataColumn2(label: Text("Column 1")),
-                    DataColumn(
-                      label: Text("Column 2"),
-                      onSort: (columnIndex, ascending) =>
-                          controller.sortById(columnIndex, ascending),
+              /// Cards
+              Row(
+                children: [
+                  Expanded(
+                    child: TDashboardCard(
+                      title: 'Sales Total',
+                      height: 184,
+                      width: 400,
+                      radius: 10,
+                      subtitle: '\$256.0',
+                      icon: Iconsax.arrow_up_3,
+                      state: 25,
                     ),
-                    DataColumn(label: Text("Column 3")),
-                    DataColumn(
-                      label: Text("Column 4"),
-                      onSort: (columnIndex, ascending) =>
-                          controller.sortById(columnIndex, ascending),
+                  ),
+                  SizedBox(width: TSizes.spaceBetweenItems),
+                  Expanded(
+                    child: TDashboardCard(
+                      height: 184,
+                      width: 400,
+                      radius: 10,
+                      title: 'Average Order Value',
+                      subtitle: '\$25',
+                      icon: Iconsax.arrow_up_3,
+                      state: 15,
                     ),
-                  ],
-                  source: MyProductData(),
-                );
-              }),
+                  ),
+                  SizedBox(width: TSizes.spaceBetweenItems),
+                  Expanded(
+                    child: TDashboardCard(
+                      height: 184,
+                      width: 400,
+                      radius: 10,
+                      title: 'Total Orders',
+                      subtitle: '36',
+                      icon: Iconsax.arrow_up_3,
+                      state: 44,
+                    ),
+                  ),
+                  SizedBox(width: TSizes.spaceBetweenItems),
+                  Expanded(
+                    child: TDashboardCard(
+                      height: 184,
+                      width: 400,
+                      radius: 10,
+                      title: 'Visitors',
+                      subtitle: '25,035',
+                      icon: Iconsax.arrow_up_3,
+                      state: 2,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -109,4 +121,35 @@ class MyProductData extends DataTableSource {
 
   @override
   int get selectedRowCount => 0;
+}
+
+class TSectionHeading extends StatelessWidget {
+  const TSectionHeading({
+    super.key,
+    this.textColor,
+    this.rightSideWidth,
+    required this.title,
+  });
+  final Color? textColor;
+  final Widget? rightSideWidth;
+  final String title;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+          child: Text(
+            title,
+            style: Theme.of(
+              context,
+            ).textTheme.headlineSmall!.apply(color: textColor),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        if (rightSideWidth != null) rightSideWidth!,
+      ],
+    );
+  }
 }

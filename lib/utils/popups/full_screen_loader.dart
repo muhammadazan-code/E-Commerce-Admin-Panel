@@ -24,11 +24,7 @@ class TFullScreenLoader {
               : TColor.white,
           width: double.infinity,
           height: double.infinity,
-          child: Column(
-            children: [
-              TAnimationLoaderWidgets(text: text, animation: animation),
-            ],
-          ),
+          child: TAnimationLoaderWidgets(text: text, animation: animation),
         ),
       ),
     );

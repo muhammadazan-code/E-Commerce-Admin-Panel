@@ -113,7 +113,7 @@ class UserModel {
 
         /// If the data contains key Role then we get the value of Role and if it is null then we get AppRole.user. Here we compare App Role with Admin role if boths are equal then AppRole will bhe admin otherwise user role.
         role: data.containsKey('Role')
-            ? (data['Role'] == 'AppRole.admin')
+            ? (data['Role'] == "AppRole.admin")
                   ? AppRole.admin
                   : AppRole.user
             : AppRole.user,
