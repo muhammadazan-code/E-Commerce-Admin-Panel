@@ -1,4 +1,7 @@
-import 'package:e_commerce_web/features/dashboard/widgets/dashboard_card.dart';
+import 'package:e_commerce_web/features/shop/screen.dashboard/widgets/dashboard_card.dart';
+import 'package:e_commerce_web/features/shop/screen.dashboard/widgets/order_status_pie_chart.dart';
+import 'package:e_commerce_web/features/shop/screen.dashboard/widgets/t_weekly_sales.dart';
+import 'package:e_commerce_web/utils/constants/colors.dart';
 import 'package:e_commerce_web/utils/constants/sizes.dart';
 import 'package:e_commerce_web/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +14,7 @@ class MobileDashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = THelperFunctions.screenWidth(context);
     return Scaffold(
+      backgroundColor: TColor.softGrey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(TSizes.defaultSpace),
@@ -22,11 +26,11 @@ class MobileDashboardScreen extends StatelessWidget {
                 'Dashboard',
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
-              SizedBox(height: TSizes.spaceBetweenSections),
+              SizedBox(height: TSizes.spaceBetweenItems),
 
               /// Cards
               TDashboardCard(
-                height: 184,
+                height: 148,
                 width: screenWidth,
                 radius: 10,
                 title: 'Sales Total',
@@ -36,7 +40,7 @@ class MobileDashboardScreen extends StatelessWidget {
               ),
               SizedBox(width: TSizes.spaceBetweenItems),
               TDashboardCard(
-                height: 184,
+                height: 148,
                 width: screenWidth,
                 radius: 10,
                 title: 'Average Order Value',
@@ -46,7 +50,7 @@ class MobileDashboardScreen extends StatelessWidget {
               ),
               SizedBox(width: TSizes.spaceBetweenItems),
               TDashboardCard(
-                height: 184,
+                height: 148,
                 width: screenWidth,
                 radius: 10,
                 title: 'Total Orders',
@@ -59,11 +63,19 @@ class MobileDashboardScreen extends StatelessWidget {
                 title: 'Visitors',
                 subtitle: '25,035',
                 icon: Iconsax.arrow_up_3,
-                height: 184,
+                height: 148,
                 width: screenWidth,
                 radius: 10,
                 state: 2,
               ),
+              const SizedBox(height: TSizes.spaceBetweenItems),
+
+              /// Bar Graph
+              const TWeeklySalesWidget(),
+              const SizedBox(height: TSizes.spaceBetweenItems),
+
+              /// Pie Chart
+              const OrderStatusPieChart(),
             ],
           ),
         ),

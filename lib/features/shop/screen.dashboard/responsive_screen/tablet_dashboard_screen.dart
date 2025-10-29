@@ -1,4 +1,7 @@
-import 'package:e_commerce_web/features/dashboard/widgets/dashboard_card.dart';
+import 'package:e_commerce_web/features/shop/screen.dashboard/widgets/dashboard_card.dart';
+import 'package:e_commerce_web/features/shop/screen.dashboard/widgets/order_status_pie_chart.dart';
+import 'package:e_commerce_web/features/shop/screen.dashboard/widgets/t_weekly_sales.dart';
+import 'package:e_commerce_web/utils/constants/colors.dart';
 import 'package:e_commerce_web/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -9,6 +12,7 @@ class TabletDashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: TColor.softGrey,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(TSizes.defaultSpace),
@@ -20,14 +24,14 @@ class TabletDashboardScreen extends StatelessWidget {
                 'Dashboard',
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
-              SizedBox(height: TSizes.spaceBetweenSections),
+              SizedBox(height: TSizes.spaceBetweenItems),
 
               /// Cards
               Row(
                 children: [
                   Expanded(
                     child: TDashboardCard(
-                      height: 184,
+                      height: 148,
                       width: 300,
                       radius: 10,
                       title: 'Sales Total',
@@ -36,10 +40,10 @@ class TabletDashboardScreen extends StatelessWidget {
                       state: 25,
                     ),
                   ),
-                  SizedBox(width: TSizes.spaceBetweenItems),
+                  SizedBox(width: TSizes.sm),
                   Expanded(
                     child: TDashboardCard(
-                      height: 184,
+                      height: 148,
                       width: 300,
                       radius: 10,
                       title: 'Average Order Value',
@@ -50,13 +54,12 @@ class TabletDashboardScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: TSizes.spaceBetweenItems),
-
+              SizedBox(height: TSizes.sm),
               Row(
                 children: [
                   Expanded(
                     child: TDashboardCard(
-                      height: 184,
+                      height: 148,
                       width: 300,
                       radius: 10,
                       title: 'Total Orders',
@@ -65,11 +68,11 @@ class TabletDashboardScreen extends StatelessWidget {
                       state: 44,
                     ),
                   ),
-                  SizedBox(width: TSizes.spaceBetweenItems),
+                  SizedBox(width: TSizes.sm),
                   Expanded(
                     child: TDashboardCard(
                       title: 'Visitors',
-                      height: 184,
+                      height: 148,
                       width: 300,
                       radius: 10,
                       subtitle: '25,035',
@@ -79,6 +82,16 @@ class TabletDashboardScreen extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: TSizes.sm),
+
+              /// Bar Graph
+              const TWeeklySalesWidget(width: double.infinity),
+
+              /// Orders
+              SizedBox(height: TSizes.sm),
+
+              /// Pie Chart
+              const OrderStatusPieChart(width: double.infinity),
             ],
           ),
         ),

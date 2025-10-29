@@ -1,5 +1,5 @@
 import 'package:e_commerce_web/common/widgets/container/t_rounded_container.dart';
-import 'package:e_commerce_web/features/dashboard/responsive_screen/desktop_dashboard_screen.dart';
+import 'package:e_commerce_web/common/widgets/section_heading/t_section_heading.dart';
 import 'package:e_commerce_web/utils/constants/colors.dart';
 import 'package:e_commerce_web/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -38,11 +38,8 @@ class TDashboardCard extends StatelessWidget {
         child: Column(
           children: [
             /// Heading
-            TSectionHeading(
-              title: title,
-              textColor: TColor.textSecondary,
-            ),
-            SizedBox(height: TSizes.spaceBetweenSections),
+            TSectionHeading(title: title, textColor: TColor.textSecondary),
+            SizedBox(height: TSizes.spaceBetweenItems),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -74,7 +71,7 @@ class TDashboardCard extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 90,
+                        height: 70,
                         child: Text(
                           'Compared to Dec 2025',
                           style: Theme.of(context).textTheme.labelMedium,
