@@ -1,3 +1,5 @@
+import 'package:e_commerce_web/common/widgets/container/t_rounded_container.dart';
+import 'package:e_commerce_web/features/shop/screen.dashboard/table/data_table.dart';
 import 'package:e_commerce_web/features/shop/screen.dashboard/widgets/dashboard_card.dart';
 import 'package:e_commerce_web/features/shop/screen.dashboard/widgets/order_status_pie_chart.dart';
 import 'package:e_commerce_web/features/shop/screen.dashboard/widgets/t_weekly_sales.dart';
@@ -82,13 +84,33 @@ class TabletDashboardScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: TSizes.sm),
+              SizedBox(height: TSizes.spaceBetweenItems),
 
               /// Bar Graph
               const TWeeklySalesWidget(width: double.infinity),
 
               /// Orders
-              SizedBox(height: TSizes.sm),
+              SizedBox(height: TSizes.spaceBetweenItems),
+              TRoundedContainer(
+                radius: 10,
+                height: 500,
+                width: double.infinity,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Recent Orders",
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                      const SizedBox(height: TSizes.spaceBetweenSections),
+                      const DashboardOrderTable(),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: TSizes.spaceBetweenItems),
 
               /// Pie Chart
               const OrderStatusPieChart(width: double.infinity),

@@ -18,12 +18,14 @@ class TPaginatedDataTable extends StatelessWidget {
     this.minWidth = 1000,
     this.tableHeight = 760,
     this.dataRowHeight = TSizes.xl + 2,
+    required this.availableRowsPerPage,
   });
 
+  final List<int> availableRowsPerPage;
   final bool sortAscending;
   final int? sortColumnIndex;
   final List<DataColumn> columns;
-  final int? rowsPerPage;
+  final int rowsPerPage;
   final Function(int)? onPageChanged;
   final DataTableSource source;
   final double minWidth;
@@ -36,7 +38,7 @@ class TPaginatedDataTable extends StatelessWidget {
         height: tableHeight,
         child: Theme(
           data: Theme.of(context).copyWith(
-            cardTheme: CardThemeData(color: TColor.white, elevation: 23),
+            cardTheme: CardThemeData(color: TColor.white, elevation: 0),
           ),
           child: PaginatedDataTable2(
             empty: TAnimationLoaderWidgets(
@@ -44,14 +46,14 @@ class TPaginatedDataTable extends StatelessWidget {
               animation: TImagePath.docerAnimation,
             ),
             columnSpacing: 12,
-            minWidth: 786,
-            rowsPerPage: 12,
+            minWidth: minWidth,
+            rowsPerPage: rowsPerPage,
             dividerThickness: 0,
             horizontalMargin: 12,
-            dataRowHeight: 60,
+            dataRowHeight: dataRowHeight,
             headingTextStyle: Theme.of(context).textTheme.titleLarge,
             headingRowColor: WidgetStateColor.resolveWith(
-              (states) => TColor.primaryBackground,
+              (states) => TColor.softGrey,
             ),
             headingRowDecoration: BoxDecoration(
               borderRadius: BorderRadius.only(
@@ -66,9 +68,10 @@ class TPaginatedDataTable extends StatelessWidget {
             /// Pagination
             showFirstLastButtons: true,
             onPageChanged: onPageChanged,
+            availableRowsPerPage: availableRowsPerPage,
             renderEmptyRowsInTheEnd: true,
-            // onRowsPerPageChanged: (noOfRows) {},
-            border: TableBorder.all(color: Colors.black),
+            onRowsPerPageChanged: (noOfRows) {},
+            // border: TableBorder.all(color: Colors.black),
 
             /// SORTING
             sortArrowBuilder: (ascending, sorted) {

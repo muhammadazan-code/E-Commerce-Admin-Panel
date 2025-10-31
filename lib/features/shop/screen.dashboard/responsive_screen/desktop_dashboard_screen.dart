@@ -1,3 +1,5 @@
+import 'package:e_commerce_web/common/widgets/container/t_rounded_container.dart';
+import 'package:e_commerce_web/features/shop/screen.dashboard/table/data_table.dart';
 import 'package:e_commerce_web/features/shop/screen.dashboard/widgets/dashboard_card.dart';
 import 'package:e_commerce_web/features/shop/screen.dashboard/widgets/order_status_pie_chart.dart';
 import 'package:e_commerce_web/features/shop/screen.dashboard/widgets/t_weekly_sales.dart';
@@ -91,8 +93,32 @@ class DesktopDashboardScreen extends StatelessWidget {
                       children: [
                         /// Bar Graph
                         TWeeklySalesWidget(width: 700),
+                        SizedBox(height: TSizes.spaceBetweenItems),
 
                         /// Orders
+                        TRoundedContainer(
+                          radius: 10,
+                          height: 500,
+                          width: 800,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Recent Orders",
+                                  style: Theme.of(
+                                    context,
+                                  ).textTheme.headlineSmall,
+                                ),
+                                const SizedBox(
+                                  height: TSizes.spaceBetweenSections,
+                                ),
+                                const DashboardOrderTable(),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
