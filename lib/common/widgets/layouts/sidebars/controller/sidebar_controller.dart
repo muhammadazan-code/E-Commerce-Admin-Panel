@@ -5,7 +5,7 @@ import 'package:get/state_manager.dart';
 
 class SidebarController extends GetxController {
   /// Default
-  final activeItems = TRoutes.responsivenDesignTutorialScreen.obs;
+  final activeItems = TRoutes.dashboard.obs;
   final hoverItems = "".obs;
 
   /// Wheneve we want to change the active item we call this function.
@@ -23,6 +23,7 @@ class SidebarController extends GetxController {
     if (!isActive(route)) {
       ///
       changeActiveItem(route);
+
       ///s
       if (TDeviceUtilities.isMobileScreen(Get.context!)) Get.back();
 
