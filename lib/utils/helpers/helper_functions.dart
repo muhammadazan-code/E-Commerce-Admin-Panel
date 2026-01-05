@@ -1,9 +1,25 @@
+import 'package:e_commerce_web/utils/constants/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/state_manager.dart';
 import 'package:intl/intl.dart';
 
 class THelperFunctions {
+  static DateTime getStartOfWeek(DateTime date) {
+    final int daysUntilMonday = date.weekday - 1;
+    final DateTime startOfWeek = date.subtract(Duration(days: daysUntilMonday));
+    return DateTime(
+      startOfWeek.year,
+      startOfWeek.month,
+      startOfWeek.day,
+      10,
+      10,
+      10,
+      10,
+      10,
+    );
+  }
+
   static Color? getColor(String value) {
     if (value == 'Green') {
       return Colors.green;
@@ -43,12 +59,12 @@ class THelperFunctions {
 
   // Here we get the device screen
   static double screenWidth(BuildContext context) {
-    return MediaQuery.of(context).size.width;
+    return MediaQuery.sizeOf(context).width;
   }
 
   // Here we get the device height
   static double screenHeight(BuildContext context) {
-    return MediaQuery.of(context).size.height;
+    return MediaQuery.sizeOf(context).height;
   }
 
   static Size screenSize(BuildContext context) {
@@ -110,5 +126,21 @@ class THelperFunctions {
       wrappedList.add(Row(children: rowChildren));
     }
     return wrappedList;
+  }
+
+  static Color getOrderStatusColor({required OrderStatus status}) {
+    if (OrderStatus.pending == status) {
+      return Colors.blue;
+    } else if (OrderStatus.processing == status) {
+      return Colors.orange;
+    } else if (OrderStatus.canceled == status) {
+      return Colors.red;
+    } else if (OrderStatus.shipped == status) {
+      return Colors.purple;
+    } else if (OrderStatus.delivered == status) {
+      return Colors.green;
+    } else {
+      return Colors.grey;
+    }
   }
 }

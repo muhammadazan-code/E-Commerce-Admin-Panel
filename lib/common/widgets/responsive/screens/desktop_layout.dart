@@ -13,7 +13,7 @@ class DesktopLayout extends StatelessWidget {
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(child: Drawer(child: TSidebars())),
+          Expanded(child: TSidebars()),
           Expanded(
             flex: 5,
             child: Column(
@@ -21,7 +21,7 @@ class DesktopLayout extends StatelessWidget {
                 // Header
                 THeader(),
                 // Body
-                body ?? SizedBox(),
+                Expanded(child: body ?? SizedBox()),
               ],
             ),
           ),

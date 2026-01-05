@@ -1,4 +1,7 @@
-import 'package:e_commerce_web/common/widgets/container/circular_container.dart';
+import 'package:e_commerce_web/Routes/app_routes.dart';
+import 'package:e_commerce_web/Routes/routes.dart';
+import 'package:e_commerce_web/binding/general_binding.dart';
+import 'package:e_commerce_web/common/widgets/container/t_rounded_container.dart';
 import 'package:e_commerce_web/common/widgets/layouts/template/site_layout.dart';
 import 'package:e_commerce_web/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -10,10 +13,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      home: ResponsiveDesignScreen(),
+      getPages: TAppRoutes.pages,
+      initialBinding: GeneralBinding(),
+      initialRoute: TRoutes.dashboard,
+      unknownRoute: GetPage(
+        name: '/page-not-found',
+        page: () => Scaffold(body: Center(child: Text('Page not found'))),
+      ),
     );
   }
 }

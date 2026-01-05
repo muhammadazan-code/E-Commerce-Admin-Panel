@@ -12,7 +12,7 @@ class TAppTheme {
   TAppTheme._(); // Private Constructor
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
-    fontFamily: 'Poppins',
+    fontFamily: "Urbanist",
     brightness: Brightness.light,
     scaffoldBackgroundColor: Colors.white,
     primaryColor: Colors.blue,
@@ -28,7 +28,7 @@ class TAppTheme {
   static ThemeData darkTheme = ThemeData(
     appBarTheme: TAppBarTheme.darkAppBarTheme,
     elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
-    fontFamily: 'Poppins',
+    fontFamily: "Urbanist",
     brightness: Brightness.dark,
     primaryColor: Colors.blue,
     useMaterial3: true,

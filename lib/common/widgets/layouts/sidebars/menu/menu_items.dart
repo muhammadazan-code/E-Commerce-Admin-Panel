@@ -29,6 +29,7 @@ class TMenuItems extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color:
+                  /// Background Color
                   (menuController.isHovering(route) ||
                       menuController.isActive(route))
                   ? TColor.primaryColor

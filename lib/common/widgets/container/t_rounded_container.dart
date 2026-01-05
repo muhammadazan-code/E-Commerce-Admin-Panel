@@ -6,13 +6,14 @@ class TRoundedContainer extends StatelessWidget {
     super.key,
     this.width = 400,
     this.height = 400,
-    this.radius = 400,
-    this.padding,
-    this.margin,
+    this.radius = 100,
+    this.padding = const EdgeInsets.all(0),
+    this.margin = const EdgeInsets.all(0),
     this.child,
     this.showBorder = false,
     this.borderColor = TColor.borderPrimary,
     this.backgroundColor = TColor.white,
+    this.onPressed,
   });
 
   final double width;
@@ -24,22 +25,26 @@ class TRoundedContainer extends StatelessWidget {
   final Color backgroundColor;
   final bool showBorder;
   final Color borderColor;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      margin: margin,
-      padding: padding,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(radius),
-        border: BoxBorder.all(
-          color: showBorder ? borderColor : Colors.transparent,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        width: width,
+        height: height,
+        margin: margin,
+        padding: padding,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius),
+          border: BoxBorder.all(
+            color: showBorder ? borderColor : Colors.transparent,
+          ),
+          color: backgroundColor,
         ),
-        color: backgroundColor,
+        child: child,
       ),
-      child: child,
     );
   }
 }

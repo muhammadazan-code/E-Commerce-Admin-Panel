@@ -7,6 +7,7 @@ import 'package:get/state_manager.dart';
 
 class NetworkManager extends GetxController {
   static NetworkManager get instance => Get.find();
+
   final Connectivity _connectivity = Connectivity();
   late StreamSubscription<List<ConnectivityResult>> _connectivitySubscription;
   final RxList<ConnectivityResult> _connectionStatus =
@@ -17,19 +18,19 @@ class NetworkManager extends GetxController {
   void onInit() {
     super.onInit();
     _connectivitySubscription = _connectivity.onConnectivityChanged.listen(
-      _updateConnectionStatus as void Function(List<ConnectivityResult> event)?,
+      _updateConnectionStatus,
     );
   }
 
   // Update the connection status based on changes in connectivity and show a relevant popup for no internet connection.
   Future<void> _updateConnectionStatus(List<ConnectivityResult> result) async {
+    _connectionStatus.value = result;
     if (result.contains(ConnectivityResult.none)) {
-      TLoaders.warningSnackBar(title: 'No Internet Connections');
+      TLoaders.customToast(message: 'No Internet Connection.');
     }
   }
 
-  // Check the Internet Connection Status.
-  // Returns true if connected, false otherwise
+  /// Check the Internet Connection Status. Returns true if connected, false otherwise
   Future<bool> isConnected() async {
     try {
       final result = await _connectivity.checkConnectivity();
@@ -38,7 +39,7 @@ class NetworkManager extends GetxController {
       } else {
         return true;
       }
-    } on PlatformException {
+    } on PlatformException catch (_) {
       return false;
     }
   }
