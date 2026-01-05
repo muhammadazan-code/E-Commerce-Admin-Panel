@@ -51,12 +51,12 @@ class TSidebars extends StatelessWidget {
                     TMenuItems(
                       icon: Iconsax.status,
                       itemName: 'Dashboard',
-                      route: TRoutes.firstScreen,
+                      route: TRoutes.dashboard,
                     ),
                     TMenuItems(
                       icon: Iconsax.image,
                       itemName: 'Media',
-                      route: TRoutes.secondScreen,
+                      route: TRoutes.media,
                     ),
                     TMenuItems(
                       icon: Iconsax.picture_frame,

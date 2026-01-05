@@ -1,6 +1,6 @@
 class TRoutes {
   static const login = "/login";
-  static const forgetPassword = "/forget-password/";
+  static const forgetPassword = "/forget-password";
   static const resetPassword = "/reset-password";
   static const dashboard = "/dashboard";
   static const media = "/media";
@@ -32,5 +32,5 @@ class TRoutes {
   static const secondScreen = "/second-screen/";
   static const secondScreenWithUID = "/second-screen/:userId";
 
-  static List sidebarMenuItems = [dashboard];
+  static List sidebarMenuItems = [dashboard, media];
 }
