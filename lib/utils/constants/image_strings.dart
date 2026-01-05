@@ -185,4 +185,14 @@ class TImagePath {
       "assets/images/animations/Animation - 1734020174401.json";
   static const String successfullyRegisterAnimation =
       "assets/images/animations/72462-check-register.json";
+  static const String defaultImage = "assets/images/contents/default_image.png";
+  static const String defaultImageIcon =
+      "assets/images/contents/default-image-icon.png";
+  static const String defaultImagesIcon =
+      "assets/images/contents/default-images-icon.png";
+  static const String tinyColorPalette =
+      "assets/images/contents/tiny-color-pallette.png";
+  static const String tinyManMaintainingWorkLife =
+      "assets/images/contents/tiny-man-maintaining-a-work-life-balance.png";
+  static const String user = "user.png";
 }

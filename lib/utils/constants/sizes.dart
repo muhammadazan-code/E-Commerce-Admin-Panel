@@ -18,15 +18,15 @@ class TSizes {
   static const double fontSizeLg = 18.0;
 
   // Button Size
-  static const double buttonHeight = 18;
-  static const double buttonRadius = 12;
-  static const double buttonWidth = 120;
+  static const double buttonHeight = 18.0;
+  static const double buttonRadius = 12.0;
+  static const double buttonWidth = 120.0;
 
   // AppBar size
-  static const double appBarHeight = 56;
+  static const double appBarHeight = 56.0;
 
   // Image Size
-  static const double imageThumbSize = 80;
+  static const double imageThumbSize = 80.0;
 
   // Default Space Sizing
   static const double defaultSpace = 24.0;
@@ -35,16 +35,16 @@ class TSizes {
 
   //Border Radius
   static const double borderRadiusSm = 4.0;
-  static const double borderRadiusMd = 8;
+  static const double borderRadiusMd = 8.0;
   static const double borderRadiusLg = 12;
 
   // Divider Height
-  static const double dividerHeight = 1;
+  static const double dividerHeight = 1.0;
 
   // Product item dimensions
-  static double productImageSize = 180;
-  static double productImageRadius = 16;
-  static double productImageHeight = 160;
+  static double productImageSize = 180.0;
+  static double productImageRadius = 16.0;
+  static double productImageHeight = 160.0;
 
   // Input field
   static const double inputFieldRadius = 12.0;

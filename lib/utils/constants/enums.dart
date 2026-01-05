@@ -1,6 +1,6 @@
 enum TextSizes { small, medium, large }
 
-enum OrderStatus { processing, shipped, delivered, pending, canceled,  }
+enum OrderStatus { processing, shipped, delivered, pending, canceled }
 
 enum PaymentMethods {
   paypal,
@@ -17,3 +17,5 @@ enum PaymentMethods {
 enum ImageType { network, memory, file, assets }
 
 enum AppRole { admin, user }
+
+enum MediaCategory { folders, banners, brands, categories, products, user }
